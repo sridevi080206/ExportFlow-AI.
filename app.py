@@ -7,6 +7,7 @@ st.set_page_config(
     layout="wide"
 )
 
+
 st.markdown("""
 <style>
 .block-container {
@@ -71,6 +72,7 @@ st.caption(
     "Review shipment documents, identify inconsistencies, "
     "and resolve issues before further processing."
 )
+
 
 st.write(
     "Compare export documents and identify "
@@ -137,6 +139,7 @@ def compare_documents(invoice, packing_list):
 
 st.divider()
 st.header("Shipment Review")
+
 
 use_sample = st.checkbox("Use sample shipment", value=True)
 
@@ -240,13 +243,7 @@ if "results" in st.session_state:
         hide_index=True
     )
 
-    st.download_button(
-        "Download CSV Report",
-        results.astype(str).to_csv(index=False),
-        "shipment_review.csv",
-        "text/csv"
-    )
-
+    
     st.subheader("Arithmetic Validation")
 
     if all(
