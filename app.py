@@ -240,6 +240,13 @@ if "results" in st.session_state:
         hide_index=True
     )
 
+    st.download_button(
+        "Download CSV Report",
+        results.astype(str).to_csv(index=False),
+        "shipment_review.csv",
+        "text/csv"
+    )
+
     st.subheader("Arithmetic Validation")
 
     if all(
